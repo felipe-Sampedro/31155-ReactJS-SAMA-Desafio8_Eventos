@@ -4,11 +4,10 @@ import ItemList from '../ItemList/ItemList'
 import { catalogo } from '../../Config'
 import { useParams } from 'react-router-dom'
 /* import ItemDetail from '../ItemDetail/ItemDetail' */
+/* import { useParams } from 'react-router-dom' */
 
 const ItemListContainer = ({prods}) => {
-
-
-  const [productos,setProductos] = useState([])
+const [productos,setProductos] = useState([])
 
 useEffect(() => {
   const pedido = new Promise((resolve,reject) => {
@@ -21,18 +20,14 @@ useEffect(() => {
   .then(()=>console.log(productos))
   .catch((err)=>console.log(err))
 
-  console.log(pedido);
-
-  return () => {
-    
+  return () => {    
   }
 }, [prods])
 
 return (
     <div className='bg-info'>ItemListContainer
 
-        <p></p>
-        <div className="d-flex justify-content-evenly p-4">
+        <div className="d-flex justify-content-evenly flex-wrap p-4">
           <ItemList productos={productos}/>
         </div>
 

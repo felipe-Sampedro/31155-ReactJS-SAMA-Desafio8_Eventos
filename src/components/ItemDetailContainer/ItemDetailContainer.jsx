@@ -20,7 +20,7 @@ useEffect(() => {
   })
 
   detalle.then((res) => setWindow(res))
-  .then(() => console(window))
+/*   .then(() => console(window)) */
   .catch((err) => console(err))
 
 
@@ -33,8 +33,8 @@ useEffect(() => {
   return (
     <div>
 
-      {window ? <ItemDetail window={window}/> : <h1><Loader /></h1> }
-s
+      {window ? <ItemDetail window={window}/> : <Loader /> }
+
     </div>
   )
 }

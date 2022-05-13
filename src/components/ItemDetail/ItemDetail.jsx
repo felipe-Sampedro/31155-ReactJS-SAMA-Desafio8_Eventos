@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ItemCount from '../ItmenCount/ItemCount'
 
 const ItemDetail = ({window}) => {
+
+ /*    const [quantityToAdd, setQuantityToAdd] = useState(1) */
+
+    function onAdd(quantityToAdd,ref){
+        console.log('La cantidad agregada al carrito es: ' + quantityToAdd +' de la referencia '+ ref);
+/*         setQuantityToAdd(quantityToAdd) */
+    }
+
   return (
     <div>
         <section className="py-1">
@@ -15,15 +23,10 @@ const ItemDetail = ({window}) => {
                         </div>
                         <p className="lead">{window.description}</p>
                         <div className='d-flex justify-content-center' /* style={{width:'250px'}} */>
-                            <ItemCount stock={window.stock}/> 
+                            <ItemCount stock={window.stock} title={window.title} onAdd={onAdd}/> 
 
                         </div>
-                        <div className="d-flex justify-content-center p-3">
-                                <button className="btn btn-outline-dark flex-shrink-0" type="button">
-                                    <i className="bi-cart-fill me-1"></i>
-                                    Agregar al carrito
-                                </button>
-                         </div>
+
                     </div>
                 </div>
             </div>
