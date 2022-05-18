@@ -14,7 +14,7 @@ useEffect(() => {
   
   const detalle = new Promise((resolve,reject) =>{
     setTimeout(() => {
-      resolve(filtro)
+      resolve(filtro ? filtro : catalogo)
     }, 2000);
 
   })

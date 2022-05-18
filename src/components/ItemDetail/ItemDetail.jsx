@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 import ItemCount from '../ItmenCount/ItemCount'
 
 const ItemDetail = ({window}) => {
 
- /*    const [quantityToAdd, setQuantityToAdd] = useState(1) */
+    const [quantityToAdd, setQuantityToAdd] = useState(0)
 
     function onAdd(quantityToAdd,ref){
-        console.log('La cantidad agregada al carrito es: ' + quantityToAdd +' de la referencia '+ ref);
-/*         setQuantityToAdd(quantityToAdd) */
+        console.log(`Item el detalle es: ${quantityToAdd} de la referencia ${ref}`);
+        setQuantityToAdd(quantityToAdd)
+
     }
 
   return (
@@ -24,8 +26,15 @@ const ItemDetail = ({window}) => {
                         <p className="lead">{window.description}</p>
                         <div className='d-flex justify-content-center' /* style={{width:'250px'}} */>
                             <ItemCount stock={window.stock} title={window.title} onAdd={onAdd}/> 
-
                         </div>
+
+                        {quantityToAdd ? (
+                            <Link to="/cart">
+                                <button  className='btn btn-success m-2'>Ver carrito</button>
+                            </Link>
+                        ):(
+                            <p></p>
+                        )}
 
                     </div>
                 </div>
