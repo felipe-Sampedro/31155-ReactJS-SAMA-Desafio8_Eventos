@@ -12,6 +12,8 @@ const ItemDetail = ({window}) => {
 
     }
 
+/*     console.log(quantityToAdd); */
+
   return (
     <div>
         <section className="py-1">
@@ -25,10 +27,10 @@ const ItemDetail = ({window}) => {
                         </div>
                         <p className="lead">{window.description}</p>
                         <div className='d-flex justify-content-center' /* style={{width:'250px'}} */>
-                            <ItemCount stock={window.stock} title={window.title} onAdd={onAdd}/> 
+                            <ItemCount stock={window.stock} title={window.title} onAdd={onAdd} quantityToAdd={quantityToAdd}/> 
                         </div>
 
-                        {quantityToAdd ? (
+                        {quantityToAdd > parseInt(0) ? (
                             <Link to="/cart">
                                 <button  className='btn btn-success m-2'>Ver carrito</button>
                             </Link>
